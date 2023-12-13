@@ -18,4 +18,7 @@ public class MeasureMapper {
     public MeasurementDTO measurementMapToDTO(Measurement measurement) {
         return modelMapper.map(measurement, MeasurementDTO.class);
     }
+    public Measurement measurementDTOMapToPOJO(MeasurementDTO measurementDTO) {
+        return modelMapper.map(measurementDTO, Measurement.class);
+    }
 }
