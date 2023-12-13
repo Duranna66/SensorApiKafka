@@ -14,7 +14,8 @@ public class SensorMapper {
     public SensorMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
-    public Sensor sensorMapToDTO(SensorDTO sensorDTO) {
+    public Sensor sensorDTOMapToS(SensorDTO sensorDTO) {
         return modelMapper.map(sensorDTO, Sensor.class);
     }
+
 }
