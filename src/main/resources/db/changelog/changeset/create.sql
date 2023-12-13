@@ -6,7 +6,7 @@ INSERT INTO sensor (name) values ('H200');
 CREATE TABLE if not exists measurement(id bigserial PRIMARY KEY,
                                     value float(53) not null,
                                     raining boolean not null,
-                                    sensor_id bigint REFERENCES sensor (id)
+                                    sensor_name bigint REFERENCES sensor (name)
 
  );
-INSERT INTO measurement(value, raining, sensor_id) VALUES (15.3, true, 1)
+INSERT INTO measurement(value, raining, sensor_name) VALUES (15.3, true, 'Kurwa')

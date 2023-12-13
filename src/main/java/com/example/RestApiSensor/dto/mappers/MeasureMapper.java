@@ -6,6 +6,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MeasureMapper {
     public ModelMapper modelMapper;
@@ -20,5 +22,8 @@ public class MeasureMapper {
     }
     public Measurement measurementDTOMapToPOJO(MeasurementDTO measurementDTO) {
         return modelMapper.map(measurementDTO, Measurement.class);
+    }
+    public List<MeasurementDTO> measurementDTOList(List<Measurement> measurements) {
+        return measurements.stream().map(x -> modelMapper.map(x, MeasurementDTO.class)).toList();
     }
 }

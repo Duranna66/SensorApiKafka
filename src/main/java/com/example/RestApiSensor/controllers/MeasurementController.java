@@ -26,15 +26,16 @@ public class MeasurementController {
 
     @PostMapping("/add")
     public ResponseEntity<MeasurementDTO> add(@RequestBody MeasurementDTO measurementDTO) {
+        System.out.println(measurementDTO);
         service.saveMes(measurementDTO);
         return ResponseEntity.ok(measurementDTO);
     }
     @GetMapping
     public ResponseEntity<List<MeasurementDTO>> getAllMes() {
-        return null;
+        return ResponseEntity.ok(service.getAll());
     }
     @GetMapping("/rainyDaysCount")
-    public Long getAllRainyDays() {
-        return 1L;
+    public Integer getAllRainyDays() {
+        return service.countOfRainy();
     }
 }

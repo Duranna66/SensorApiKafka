@@ -9,4 +9,5 @@ public interface MeasureRepo extends JpaRepository<Measurement,Long > {
     @Override
     <S extends Measurement> S save(S entity);
     List<Measurement> getAllBy() ;
+
 }
