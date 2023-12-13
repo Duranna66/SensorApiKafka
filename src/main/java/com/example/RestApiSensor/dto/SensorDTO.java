@@ -1,2 +1,4 @@
-package com.example.RestApiSensor.dto;public class SensorDTO {
+package com.example.RestApiSensor.dto;
+
+public class SensorDTO {
 }
