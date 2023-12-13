@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 public class MeasurementDTO {
     private boolean raining;
     private double value;
-    private Sensor sensor;
+    private SensorDTO sensor;
 
 }

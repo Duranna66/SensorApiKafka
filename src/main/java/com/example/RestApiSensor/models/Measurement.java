@@ -16,5 +16,6 @@ public class Measurement {
     private boolean raining;
     private double value;
     @ManyToOne
+    @JoinColumn(name = "sensor_name", referencedColumnName = "name")
     private Sensor sensor;
 }
