@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 public class RestApiSensorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestApiSensorApplication.class, args);
+		SpringApplication.run(RestApiSensorApplication.class, args);//test
 	}
 	@Bean
 	public ModelMapper modelMapper() {
