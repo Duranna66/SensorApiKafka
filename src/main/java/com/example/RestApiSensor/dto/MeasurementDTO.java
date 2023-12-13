@@ -1,22 +1,17 @@
-package com.example.RestApiSensor.models;
+package com.example.RestApiSensor.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.example.RestApiSensor.models.Sensor;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Measurement {
-    @Id
-    private Long id;
+public class MeasurementDTO {
     private boolean raining;
     private double value;
-    @ManyToOne
     private Sensor sensor;
+
 }
