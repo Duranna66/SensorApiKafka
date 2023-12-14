@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class KafkaTopicConfig {
     @Bean
     public NewTopic getKafkaTopic() {
-        return TopicBuilder.name("Ivan")
+        return TopicBuilder.name("Nikolaev")
                 .build();
     }
 }
