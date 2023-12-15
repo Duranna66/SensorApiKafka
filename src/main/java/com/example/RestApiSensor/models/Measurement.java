@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @Data
@@ -16,6 +17,7 @@ public class Measurement {
     private boolean raining;
     private double value;
     @ManyToOne
+    @NonNull
     @JoinColumn(name = "sensor_name", referencedColumnName = "name")
     private Sensor sensor;
 }

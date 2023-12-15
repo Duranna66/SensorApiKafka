@@ -26,6 +26,7 @@ public class MeasurementService {
     public Measurement saveMes(MeasurementDTO measurementDTO) {
         Measurement measurement = measureMapper.measurementDTOMapToPOJO(measurementDTO);
         Sensor sensor = sensorRepo.findByName(measurement.getSensor().getName());
+
         measurement.setSensor(sensor);
         return measureRepo.save(measurement);
     }
