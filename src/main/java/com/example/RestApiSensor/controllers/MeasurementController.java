@@ -4,21 +4,25 @@ import com.example.RestApiSensor.dto.MeasurementDTO;
 import com.example.RestApiSensor.dto.mappers.MeasureMapper;
 import com.example.RestApiSensor.models.Measurement;
 import com.example.RestApiSensor.services.MeasurementService;
+import com.sun.net.httpserver.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/measurements")
 public class MeasurementController {
+    KafkaTemplate<String, String> kafkaTemplate;
     private MeasurementService service;
     @Autowired
 
-    public MeasurementController(MeasurementService service) {
+    public MeasurementController(MeasurementService service, KafkaTemplate<String, String> kafkaTemplate ) {
         this.service = service;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     @PostMapping("/add")
@@ -33,7 +37,8 @@ public class MeasurementController {
     }
     @GetMapping("/rainyDaysCount")
     @ResponseBody
-    public Integer getAllRainyDays() {
-        return service.countOfRainy();
+    public String getAllRainyDays() {
+        kafkaTemplate.send("Nikolaev", String.valueOf(service.countOfRainy()));
+        return "Success";
     }
 }
